@@ -12,6 +12,12 @@ abstract class Failure extends Equatable {
   List<Object> get props => [errorMessage];
 }
 
+class GenerateFailure extends Failure {
+  final String? errorMsg = "";
+
+  const GenerateFailure(String errorMessage) : super(errorMessage);
+}
+
 abstract class UseCase<T, Params> {
   Future<Either<Failure, T>> call(Params params);
 }

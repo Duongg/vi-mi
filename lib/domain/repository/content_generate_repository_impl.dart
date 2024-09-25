@@ -30,7 +30,7 @@ class ContentGenerateRepositoryImpl extends AbstractContentRepository {
           .then((value) => response = value.text.toString());
       return Right(response);
     } on Exception {
-      return Left(Exception() as Failure);
+      return Left(const GenerateFailure("Error Generated"));
     }
   }
 }

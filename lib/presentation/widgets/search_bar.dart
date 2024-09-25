@@ -53,12 +53,14 @@ class _SearchBoxState extends State<SearchBox> {
                     borderRadius: BorderRadius.circular(15)),
                 child: IconButton(
                   onPressed: () {
-                    if (widget.imagePath != null) {
+                    if (widget.imagePath != null &&
+                        searchTextController.text.isNotEmpty) {
                       context.read<ContentGenerateBloc>().add(
                             OnGenerateContentEvent(searchTextController.text,
                                 widget.imagePath.toString()),
                           );
                     }
+                    searchTextController.text = "";
                   },
                   icon: const Icon(
                     Icons.search_rounded,
